@@ -33,5 +33,7 @@ Milano only requires minimal changes to what your script accepts via command lin
    pip install -r requirements.txt.
 2. Follow this [mini-tutorial](docs/Quick_start.md).
 
+## Documentation
+[https://nvidia.github.io/Milano](https://nvidia.github.io/Milano)
 
 

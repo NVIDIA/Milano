@@ -1,5 +1,3 @@
-# Milano 
-
 # Contents
 * [Quick Start](Quick_start.md)
 * [How to add new search algorithm](how-to-add-new-search-algorithm.md)
