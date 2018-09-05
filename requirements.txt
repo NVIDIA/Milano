@@ -1,0 +1,7 @@
+pandas
+numpy
+scipy
+six
+paramiko
+boto3
+
