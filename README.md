@@ -6,7 +6,7 @@
   <br>
 </div>
 
-Milano is a tool for enabling machine learning researchers and practitioners to perform massive hyperparameters 
+Milano (Machine learning autotuner and network optimizer) is a tool for enabling machine learning researchers and practitioners to perform massive hyperparameters 
 and architecture searches.
 
 You can use it to:
