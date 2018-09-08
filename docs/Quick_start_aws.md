@@ -30,7 +30,7 @@ look for Key Pairs. Once you click "Create Key Pair" .pem file will be downloade
 ## Step 2 (Create S3 bucket and upload your data there)
 Milano uses S3 buckets for storing training data and saving model checkpoints.
 * Install AWS CLI utility:  `sudo apt  install awscli` (on Ubuntu Linux)
-* Create S3 bucket: * Create S3 bucket: `aws s3api create-bucket --bucket milano-test-data --region us-west-2 --create-bucket-configuration LocationConstraint=us-west-2`
+* Create S3 bucket: `aws s3api create-bucket --bucket milano-test-data --region us-west-2 --create-bucket-configuration LocationConstraint=us-west-2`
     * This command created an S3 bucket called 'milano-test-data'
     * Make sure you use 'us-west-2' region
 * Upload your training data to the bucket you've just created. In the steps below we'll upload CIFAR-10 training data as example:
