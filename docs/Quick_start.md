@@ -40,10 +40,11 @@ From the client machine run:
 
 ``python tune.py --config=examples/pytorch/wlm/wlm_azkaban.py --verbose 3``
 
-Note that client and backend machines can be one in this example.
+Note that, in this example, client and backend machines can be one.
 
 ## Results
 By default, the results will be saved in the file ``results.csv``. They will be ordered with the top results first.
+Also, it will be updated on the fly, as results come in.
 If a job failed for whatever reason, it will be still logged in ``results.csv`` with ``inf`` as a result.
 
-**For AWS example, checkout [this config](../examples/os2s/cifar10/cifar10_aws.py)**.
+**For AWS example, checkout [this tutorial](Quick_start_aws.md)**.

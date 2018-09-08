@@ -1,5 +1,8 @@
+# Milano
+
 ## Contents
 * [Quick Start](Quick_start.md)
+* [Quick Start on AWS](Quick_start_aws.md)
 * [How to add new search algorithm](how-to-add-new-search-algorithm.md)
 * [Benchmarking](benchmarking.md)
 

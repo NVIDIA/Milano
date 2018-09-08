@@ -31,7 +31,7 @@ Milano only requires minimal changes to what your script accepts via command lin
 ## How to Get Started
 1. Install all dependencies with the following command
    pip install -r requirements.txt.
-2. Follow this [mini-tutorial](docs/Quick_start.md).
+2. Follow this [mini-tutorial for local machine](docs/Quick_start.md) or this [mini-tutorial for AWS](docs/Quick_start_aws.md) 
 
 ## Documentation
 [https://nvidia.github.io/Milano](https://nvidia.github.io/Milano)
