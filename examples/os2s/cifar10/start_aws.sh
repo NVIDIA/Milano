@@ -8,5 +8,5 @@ cd $HOMEDIR
 ln -s /data data
 LOGDIR=/tmp/logs
 pip install -r requirements.txt
-python run.py --mode=train --logdir=$LOGDIR --config_file=example_configs/image2label/cifar-nv.py --num_epochs=50 --enable_logs "$@"
-python run.py --mode=eval --logdir=$LOGDIR --config_file=example_configs/image2label/cifar-nv.py --num_epochs=50 --enable_logs "$@"
+python run.py --mode=train --logdir=$LOGDIR --config_file=example_configs/image2label/cifar-nv.py --num_epochs=3 --enable_logs "$@"
+python run.py --mode=eval --logdir=$LOGDIR --config_file=example_configs/image2label/cifar-nv.py --num_epochs=3 --enable_logs "$@"

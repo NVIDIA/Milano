@@ -37,12 +37,12 @@ backend = AWSBackend
 backend_params = {
    # TODO maybe automate the creation of a keypair if one isn't supplied
   "config": {
-    "num_workers": 2, # needs to match num_init_jobs
+    "num_workers": 1,
     "spot_instances": False,
     "key_name": "milano-test",
-    "private_key_path": "Path to Your private key path .pem file", # FILL THIS IN WITH YOUR .pem FILE
+    "private_key_path": "/home/okuchaiev/.aws/milano-test.pem", # FILL THIS IN WITH YOUR .pem FILE
     "region_name": "us-west-2",
-    "docker_image_name": "tensorflow/tensorflow:latest-gpu-py3",
+    "docker_image_name": "tensorflow/tensorflow:1.9.0-gpu-py3",
     # "iam_role": "..." # if omitted, a role with read access to the dataset bucket/prefixes is created.
     "datasets": [
       {
@@ -61,5 +61,5 @@ backend_params = {
 # specify search algorithm to use
 search_algorithm = RandomSearch
 search_algorithm_params = {
-  "num_evals": 512,
+  "num_evals": 3,
 }
