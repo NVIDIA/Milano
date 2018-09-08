@@ -9,7 +9,7 @@ Please [see here for a quick start mini-tutorial](Quick_start.md).
 
 **Once finished, make sure all "milano-worker" instances are termiated! (see screenshot below)**
 <div align="left">
-  <img src="aws_terminate.png" alt="milano-workers" width="250px">
+  <img src="aws_terminate.png" alt="milano-workers" width="450px">
   <br>
 </div>
 
