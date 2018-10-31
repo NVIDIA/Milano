@@ -28,6 +28,16 @@ On the Backend machine, install Azkaban solo server:
 * Navigate to ``http://127.0.0.1:8081/``. You should see Azkaban UI. The username is "azkaban" and password is "azkaban".
 * Write down your backend IP address. (on linux, you can use ``ifconfig`` to check your IP)
 
+If you have Java-related errors while installing Azkaban, make sure you are using Java 8. 
+On Ubuntu 16 you can do:
+```bash
+$ sudo add-apt-repository ppa:webupd8team/java
+$ sudo apt-get update
+$ sudo apt install oracle-java8-installer
+$ sudo apt install oracle-java8-set-default
+$ export JAVA_HOME=/usr/lib/jvm/java-8-oracle/
+```
+
 *If you are using SLURM or AWS backends. Step 2 is not necessary.* 
 ## Step 3 (Prepare the job script)
 Take a look at the file: ``examples/pytorch/wlm/start_wlm_azkaban.sh``
