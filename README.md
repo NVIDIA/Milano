@@ -1,3 +1,5 @@
+[![License](https://img.shields.io/badge/License-Apache%202.0-brightgreen.svg)](https://opensource.org/licenses/Apache-2.0)
+
 # Milano 
 (*This is a research project, not an official NVIDIA product.*)
 
@@ -5,6 +7,9 @@
   <img src="iconMilano.png" alt="Milano" width="250px">
   <br>
 </div>
+
+## Documentation
+[https://nvidia.github.io/Milano](https://nvidia.github.io/Milano)
 
 Milano (Machine learning autotuner and network optimizer) is a tool for enabling machine learning researchers and practitioners to perform massive hyperparameters 
 and architecture searches.
@@ -32,8 +37,5 @@ Milano only requires minimal changes to what your script accepts via command lin
 1. Install all dependencies with the following command
    pip install -r requirements.txt.
 2. Follow this [mini-tutorial for local machine](docs/Quick_start.md) or this [mini-tutorial for AWS](docs/Quick_start_aws.md) 
-
-## Documentation
-[https://nvidia.github.io/Milano](https://nvidia.github.io/Milano)
 
 
