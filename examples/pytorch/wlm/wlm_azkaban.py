@@ -10,7 +10,7 @@ script_to_run = "examples/pytorch/wlm/start_wlm_azkaban.sh"
 # specify the tunable parameters as cmd arguments and their possible ranges
 params_to_tune = {
   "--model": {
-    "type": "values", "values": ["LSTM", "GRU"]
+    "type": "values", "values": ["LSTM", "GRU", "QRNN"]
   },
   "--emsize": {
     "type": "values", "values": [128, 160, 196, 224, 256, 320, 384, 448, 512, 576, 640, 704, 768, 896, 1024]
@@ -21,16 +21,28 @@ params_to_tune = {
   "--lr": {
     "type": "values", "values": [5, 10, 12, 15, 18, 19, 20, 22, 25, 30, 40],
   },
-  # "--nhid": {
-  #   "type": "values", "values": [256, 512, 650, 1024, 1504, 2048]
-  # },
-  "--bptt": {
-    "type": "values", "values": [16, 32, 48, 64, 96, 128, 160, 196, 256, 320]
+  "--nhid": {
+    "type": "values", "values": [224, 256, 320, 384, 448, 512, 576, 640, 704, 768, 896, 1024, 1280]
   },
-  # "--clip": {
-  #   "type": "range", "min": 0.1, "max": 2.0
-  # },
+  "--bptt": {
+    "type": "values", "values": [16, 32, 48, 64, 96, 128, 160, 196]
+  },
+  "--clip": {
+    "type": "range", "min": 0.1, "max": 2.0
+  },
   "--dropout": {
+    "type": "range", "min": 0.0, "max": 0.9
+  },
+  "--dropouth": {
+    "type": "range", "min": 0.0, "max": 0.9s
+  },
+  "--dropoute": {
+    "type": "range", "min": 0.0, "max": 0.9
+  },
+  "--dropouti": {
+    "type": "range", "min": 0.0, "max": 0.9
+  },
+  "--wdrop": {
     "type": "range", "min": 0.0, "max": 0.9
   },
 }
@@ -51,7 +63,7 @@ objective = "minimize"
 # specify backend information and workers configuration
 backend = AzkabanBackend
 backend_params = {
-  "url": "http://127.0.0.1", # URL of your Azkaban UI
+  "url": "http://10.110.40.104", # URL of your Azkaban UI
   "port": "8081", # Azkaban port. You should see Azkaban UI at url:port
   "username": "azkaban",
   "password": "azkaban",
@@ -81,5 +93,5 @@ backend_params = {
 # specify search algorithm to use
 search_algorithm = RandomSearch
 search_algorithm_params = {
-  "num_evals": 16,
+  "num_evals": 1000,
 }
