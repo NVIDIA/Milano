@@ -34,7 +34,7 @@ params_to_tune = {
     "type": "range", "min": 0.0, "max": 0.9
   },
   "--dropouth": {
-    "type": "range", "min": 0.0, "max": 0.9s
+    "type": "range", "min": 0.0, "max": 0.9
   },
   "--dropoute": {
     "type": "range", "min": 0.0, "max": 0.9
