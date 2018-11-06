@@ -5,4 +5,4 @@ HOMEDIR=/home/chipn/dev/awd-lstm-lm # CHANGE THIS to the path to Pytorch example
 cd $HOMEDIR
 mkdir -p tuning_runs
 LOGDIR=`mktemp -d -p "tuning_runs"`
-python main.py --cuda --epochs 10 --data /home/chipn/data/childbooks --save $RANDOM  "$@"
+python main.py --epochs 10 --data /home/chipn/data/childbooks --seed 1882 --save $RANDOM "$@"
