@@ -61,6 +61,8 @@ def main():
     
     param_names = get_names(params)
     raw_benchmarks = [float(line[1]) for line in lines]
+    raw_benchmarks = [b if b < 300 else float('inf') for b in raw_benchmarks]
+    print(len([b for b in raw_benchmarks if b < 300]))
     max_ = max([v for v in raw_benchmarks if v != float('inf')])
     benchmarks = [v if v != float('inf') else max_ * 1.2 + random.uniform(-max_ * 0.05, max_ * 0.05) for v in raw_benchmarks]
 
