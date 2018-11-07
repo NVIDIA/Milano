@@ -39,7 +39,6 @@ Milano only requires minimal changes to what your script accepts via command lin
    pip install -r requirements.txt.
 2. Follow this [mini-tutorial for local machine](docs/Quick_start.md) or this [mini-tutorial for AWS](docs/Quick_start_aws.md) 
 
-
 ## Visualize
 We provide a script to convert the csv file output into two kinds of graphs:
 
