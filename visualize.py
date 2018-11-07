@@ -1,3 +1,19 @@
+"""
+A script to convert the csv file output into two kinds of graphs:
+1, Graphs of each hyperparameter with the benchmark (e.g. valid perplexity)
+2, Color graphs that show the relationship between any two hyperparameters and the benchmark
+
+To run the script, use:
+
+python3 visualize.py --file [the name of the results csv file] 
+                     --n [the number of samples to visualize]
+                     --subplots [the number of subplots to show in a plot]
+                     --max [the max value of benchmark you care about]
+
+
+# Copyright (c) 2018 NVIDIA Corporation
+"""
+
 import argparse
 import os
 import math
@@ -47,8 +63,10 @@ def main():
                         help='location of the result file')
     parser.add_argument('--n', type=int, default=-1,
                         help='number of results to visualize. -1 for all')
-    parser.add_argument('--wml', type=bool, default=True,
-                        help='whether it has number of hidden units or nah')
+    parser.add_argument('--subplots', type=int, default=6,
+                        help='the number of subplots in one plot')
+    parser.add_argument('--max', type=int, default=-1,
+                        help='the max value of the benchmark you care about. -1 means you care about all values')
 
     args = parser.parse_args()
 
@@ -61,8 +79,9 @@ def main():
     
     param_names = get_names(params)
     raw_benchmarks = [float(line[1]) for line in lines]
-    raw_benchmarks = [b if b < 300 else float('inf') for b in raw_benchmarks]
-    print(len([b for b in raw_benchmarks if b < 300]))
+
+    if not args.max == -1:
+        raw_benchmarks = [b if b < args.max else float('inf') for b in raw_benchmarks]
     max_ = max([v for v in raw_benchmarks if v != float('inf')])
     benchmarks = [v if v != float('inf') else max_ * 1.2 + random.uniform(-max_ * 0.05, max_ * 0.05) for v in raw_benchmarks]
 
@@ -77,22 +96,22 @@ def main():
     graph_folder = 'graphs_{}'.format(samples)
 
     os.makedirs(graph_folder, exist_ok=True)
-    if args.wml:
-        results['nhiddenunits'] = np.asarray(results['emsize']) * np.asarray(results['nlayers'])
-        param_names.append('nhiddenunits')
 
     n_params = len(param_names)
-    n_rows = math.ceil(n_params / 2)
+    n_rows = math.ceil(args.subplots / 2)
     n_cols = 2
 
-    for i, name in enumerate(param_names):
-        print(name, n_params, i % 2 + 1, i // 2 + 1)
-        plt.subplot(n_rows, n_cols, i + 1)
-        plt.plot(results[name][:samples], benchmarks[:samples], 'bo')
-        plt.title(name)
-        plt.ylabel(benchmark)
-    plt.savefig(os.path.join(graph_folder, 'single_params.png'))
-    plt.close()
+    n_plots = math.ceil(n_params / args.subplots)
+
+    for j in range(n_plots):
+        for i, name in enumerate(param_names[j * args.subplots : (j + 1) * args.subplots]):
+            plt.subplot(n_rows, n_cols, i + 1)
+            plt.plot(results[name][:samples], benchmarks[:samples], 'bo')
+            plt.title(name)
+            plt.ylabel(benchmark)
+        plt.savefig(os.path.join(graph_folder, 'single_params_{}.png'.format(j)))
+        plt.show()
+        plt.close()
 
     for i, xlabel in enumerate(param_names):
         for j, ylabel in enumerate(param_names):
